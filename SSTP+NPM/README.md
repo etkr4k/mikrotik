@@ -18,7 +18,7 @@
 ### Создаем профиль
 `/ppp profile add local-address=10.20.0.1 name=SSTP-profile remote-address=sstp-pool`
 ### Создаем пользователя
-`/ppp secret add name=nsername password=Pa$$word profile=SSTP-profile service=sstp remote-address=10.20.0.2`
+`/ppp secret add name=username password=Pa$$word profile=SSTP-profile service=sstp remote-address=10.20.0.2`
 ### Создадим интерфейс
 `/interface sstp-server server set authentication=mschap2 certificate=none default-profile=SSTP-profile port=8443 enabled=yes pfs=yes tls-version=only-1.2`
 ### На этом настройка сервера почти закончена, осталось добавить сертификат, это сделаем чуть позже
