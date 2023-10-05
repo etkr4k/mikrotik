@@ -41,17 +41,17 @@
 ## Донастраиваем SSTP
 Осталось сгенерировать сертификат и указать его в SSTP. Для получения сертификата необходимо отключить правила NAT для NMP
 ### Создаем правило открывающий 80 порт для генерации
-`/ip/firewall/filter add chain=input action=accept protocol=tcp dst-port=80 log=no log-prefix=""
+`/ip/firewall/filter add chain=input action=accept protocol=tcp dst-port=80 log=no log-prefix=""`
 ### Включаем сервис WWW
 `/ip service enable [find name="www"]`
 ### Генерируем сертификат
-/certificate enable-ssl-certificate dns-name=vpn.domain.com`
+`/certificate enable-ssl-certificate dns-name=vpn.domain.com`
 ### Отключаем сервис WWW
 `/ip service disable [find name="www"]`
 ### Незабываем отключить 80 порт
 `ip/firewall/filter/ disable numbers="номер правила"`
 ### Назначаем сертификат для SSTP
-`/interface sstp-server server set certificate="lets"
+`/interface sstp-server server set certificate="lets"`
 
 ## Обновление сертификата
 Сертификат от Let`s Encrypt действует в течении 90 дней, так что стоит настроить автоматические обновление.
