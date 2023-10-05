@@ -36,7 +36,7 @@
 ### Добавим правило форварда на 8443 для адрес листа SSTP-List
 `/ip/firewall/nat add chain=dstnat action=dst-nat to-ports=8443 protocol=tcp dst-address-type=local src-address-list=SSTP-List dst-port=443 log=no log-prefix=""`
 ### Изменим правило Netmap для доступа из WAN к NPM
-`/ip/firewall/nat add chain=dstnat action=netmap to-addresses=IP-NPM-SERVER protocol=tcp src-address-list=!SSTP-List in-interface-list=WAN dst-port=80,443 log=no log-prefix="" 
+`/ip/firewall/nat add chain=dstnat action=netmap to-addresses=IP-NPM-SERVER protocol=tcp src-address-list=!SSTP-List in-interface-list=WAN dst-port=80,443 log=no log-prefix=""`
 
 ## Донастраиваем SSTP
 Осталось сгенерировать сертификат и указать его в SSTP. Для получения сертификата необходимо отключить правила NAT для NMP
