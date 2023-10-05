@@ -1,0 +1,21 @@
+# Change domain name
+:local domain "domain.com"
+# Enable rule Input 80 port
+/ip/firewall/filter enable numbers="#"
+# Disable rule for Nginx Reverse Proxy 
+/ip/firewall/nat/ disable numbers="#"
+# Enable Service WWW
+/ip service enable [find name="www"]
+# Generation certificate
+/certificate enable-ssl-certificate dns-name=$domain
+# Disable rule Input 80 port
+ip/firewall/filter disable numbers="#"
+# Disable Service WWW
+/ip service disable [find name="www"]
+# Enable rule for Nginx Reverse Proxy 
+/ip/firewall/nat/ enable numbers="#"
+# Set certificate for SSTP =none
+/interface sstp-server server set certificate=none
+: delay 1
+# Set new certificate for SSTP
+/interface sstp-server server set certificate="lets"
