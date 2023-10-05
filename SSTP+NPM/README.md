@@ -56,7 +56,7 @@
 ## Обновление сертификата
 Сертификат от Let`s Encrypt действует в течении 90 дней, так что стоит настроить автоматические обновление.
 
-Скрипт находится в этом репозитории в директории /script, его надо настроить под себя
+Скрипт находится в этом репозитории под названием letsencrypt-renew, его надо настроить под себя
 
 ### Скрипт надо добавить в задание планировщика:
-`/system scheduler add interval=9w name=letsencrypt-scheduled-renew on-event=letsencrypt-renew policy=read,write start-date=feb/1/2023 start-time=04:00:00`
+`/system scheduler add interval=9w name=letsencrypt-scheduled-renew on-event=letsencrypt-renew policy=read,write start-date=oct/6/2023 start-time=04:00:00`
